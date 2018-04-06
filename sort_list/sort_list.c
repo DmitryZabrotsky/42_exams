@@ -22,6 +22,8 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 			buf->next->data = nbuf;
 			return (sort_list(lst, cmp));
 		}
+		else
+			buf = buf->next;
 	}
 	return (lst);
 }
@@ -38,21 +40,21 @@ int main (int c, char **v)
 
 		lst1->data = atoi(v[1]);
 		lst1->next = lst2;
-		lst1->data = atoi(v[2]);
-		lst1->next = lst3;
-		lst1->data = atoi(v[3]);
-		lst1->next = lst4;
-		lst1->data = atoi(v[4]);
-		lst1->next = lst5;
-		lst1->data = atoi(v[5]);
-		lst1->next = NULL;
+		lst2->data = atoi(v[2]);
+		lst2->next = lst3;
+		lst3->data = atoi(v[3]);
+		lst3->next = lst4;
+		lst4->data = atoi(v[4]);
+		lst4->next = lst5;
+		lst5->data = atoi(v[5]);
+		lst5->next = NULL;
 
-		sort_list(lst1, &asc);
+		t_list *res = sort_list(lst1, &asc);
 
-		while (lst1)
+		while (res)
 		{
-			printf("%i\n", lst1->data);
-			lst1 = lst1->next;
+			printf("%i\n", res->data);
+			res = lst1->next;
 		}
 	}
 	else
