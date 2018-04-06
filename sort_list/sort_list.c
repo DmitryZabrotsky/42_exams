@@ -54,7 +54,7 @@ int main (int c, char **v)
 		while (res)
 		{
 			printf("%i\n", res->data);
-			res = lst1->next;
+			res = res->next;
 		}
 	}
 	else
