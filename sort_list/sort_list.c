@@ -15,7 +15,7 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	buf = lst;
 	while (buf->next)
 	{
-		if (asc(buf->data, buf->next->data))
+		if (!(asc(buf->data, buf->next->data)))
 		{
 			nbuf = buf->data;
 			buf->data = buf->next->data;
